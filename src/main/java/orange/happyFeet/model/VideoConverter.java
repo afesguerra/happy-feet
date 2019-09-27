@@ -1,4 +1,4 @@
-package Orange.happy_feet.o.model;
+package orange.happyFeet.model;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.IOException;
 public class VideoConverter {
 	private String fileAddress;
 	private static File file;
-	final static String command = String.format("ffmpeg.exe -i \"%1$s\" -y \"%1$s.mp4\"", file.getAbsolutePath());
+	private final static String command = String.format("ffmpeg.exe -i \"%1$s\" -y \"%1$s.mp4\"", file.getAbsolutePath());
 
 
 	public VideoConverter(String fileAddress) {
