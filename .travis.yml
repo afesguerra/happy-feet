@@ -1,1 +1,12 @@
 language: java
+addons:
+  sonarcloud:
+    organization: afesguerra-github
+    token:
+      secure: m7iHT0Q8SssurolUAGB5iLIPutxCws9Be1MZpA6j4FDncs1hxBDKs0YfRfITe0EC0cNXNiCzdzY7aEaZ3Ll98ihJFNhQIZCn9muqJaQ67sdF0GmZGUyf+DNbNzLQHO166zcoP1YK/Horp+2R1LrAqsTtmep5lOALNlxYug+lkdGBPJ4QZjsLTGeNaN0Ec0w/xMUg7lwu9x4MW5GZi753ceItkqgMPy4dXvgNTfydDeHiobT6M65g9pjmg0xGjXef1+6LE3GAQzuS+RLtDxq0TQLJ0N7UBXsFGo2kyS7aOgH8o1tjgsr9zpq1SsrYaocASHHdTUgHHIXZixBQvCM1Y6pBJWmJipG/5KJJiytgcxF3mWZNU0BaV8JIfrQ5nyyS8HImmvqZkBJ/+3AdqOabpnGSMgS6m//Gms9xrqcvBdMegCfGOFWckzknMOZASvBDmqBCDUqx7AEGfT8cWTqjdMFrGr/gTN1fia6NH4ZaGSyc9d2fSqQM23YVLelQbmNUh2mPSfyffgf++oHiMmrlK/27FZ3fqPKd3h3RhjkCKXamu0TnTUidFdQvhChATgHnq7utts6SnuV5WyVnVAGhFYgonFkP/ifScpH5hmz5YhtND2k5pWrjS48opMBfHUP/If3tKkluUDAvV+3WPi4cABDdTv0ElJ/0aXpD3ZZ6G3E=
+script:
+  # the following command line builds the project, runs the tests with coverage
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent verify
+after_success:
+  # the following command executes the SonarCloud analysis
+  - mvn sonar:sonar
